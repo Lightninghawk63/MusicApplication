@@ -12,5 +12,5 @@ public class GraphicsHandler {
 			bar[i] = new StaffBar(startingY + i*20);
 			bar[i].paint(g);
 		}
-	}
+	}	
 }

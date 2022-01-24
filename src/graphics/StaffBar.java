@@ -12,7 +12,6 @@ public class StaffBar extends VisualObject{
 
 	@Override
 	public void paint(Graphics g) {
-		
 		g.fillRect(startingX,startingY,(int) (Constants.screenWidth - 40), (int) (Constants.screenHeight/400) );
 	}
 }

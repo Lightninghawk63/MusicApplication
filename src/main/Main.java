@@ -6,12 +6,17 @@ import java.util.Collection;
 import java.awt.*;
 import javax.sound.sampled.*;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import org.apache.commons.math3.complex.Complex;
 import org.apache.commons.math3.transform.DftNormalization;
 import org.apache.commons.math3.transform.FastFourierTransformer;
 import org.apache.commons.math3.transform.TransformType;
+
+import graphics.TimeSignature;
+import graphics.Title;
 
 public class Main extends Canvas{
 	private static final long serialVersionUID = -5968742390812682346L;
@@ -22,6 +27,9 @@ public class Main extends Canvas{
 	private static double realMin = Integer.MAX_VALUE;
 	private static double imaginaryMax = Integer.MIN_VALUE;
 	private static double imaginaryMin = Integer.MAX_VALUE;
+	
+	private static JFrame frame = new JFrame("My Drawing");
+	private static JPanel panel = new JPanel();
 	
 	public static void main(String[] args) throws IOException {
 		initGUI();
@@ -64,6 +72,7 @@ public class Main extends Canvas{
 						
 						indexAsList.add(indexAsArray[i]);
 					}
+					
 					transformedPressures.add(indexAsList);
 					
 				}		
@@ -86,13 +95,20 @@ public class Main extends Canvas{
 			}
 		}*/
 		
-		GraphicsHandler.paintStaffLine(g, 20);
+		//GraphicsHandler.paintStaffLine(g, 100);
+		
     }
 	
 	public static void initGUI() {
-		JFrame frame = new JFrame("My Drawing");
-        canvas.setSize((int)Constants.screenWidth, (int)Constants.screenHeight);
-        frame.add(canvas);
+		//panel.add(new JLabel(Constants.readFile.getName()));
+		canvas.setSize((int)Constants.screenWidth, (int)Constants.screenHeight);
+
+		TimeSignature.initialize(panel);
+		
+		panel.add(canvas);
+		
+        frame.add(panel);
+   
         frame.pack();
         frame.setVisible(true);
 	}
