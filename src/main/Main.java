@@ -30,6 +30,7 @@ public class Main extends Canvas{
 	
 	private static JFrame frame = new JFrame("My Drawing");
 	private static JPanel panel = new JPanel();
+	private static Toolkit toolkit = Toolkit.getDefaultToolkit();
 	
 	public static void main(String[] args) throws IOException {
 		initGUI();
@@ -95,16 +96,14 @@ public class Main extends Canvas{
 			}
 		}*/
 		
-		//GraphicsHandler.paintStaffLine(g, 100);
-		
+		GraphicsHandler.paintStaffLine(g, 100);
+		GraphicsHandler.paintTimeSignature(g, 100, toolkit.getImage("eight.png"), toolkit.getImage("four.png"), this);
     }
 	
 	public static void initGUI() {
 		//panel.add(new JLabel(Constants.readFile.getName()));
 		canvas.setSize((int)Constants.screenWidth, (int)Constants.screenHeight);
 
-		TimeSignature.initialize(panel);
-		
 		panel.add(canvas);
 		
         frame.add(panel);

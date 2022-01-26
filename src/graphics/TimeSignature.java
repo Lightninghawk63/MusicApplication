@@ -1,23 +1,27 @@
 package graphics;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.awt.*;
 
 import main.Constants;
+import javax.swing.*;
 
-public class TimeSignature {
+public class TimeSignature extends VisualObject{
+
+	public Image numBeats;
+	public Image beat;
+	public Canvas canvas;
 	
-	public static JLabel numBeatsLabel;
-	public static JLabel beatLabel;
-	
-	public static void initialize(JPanel panel) {
-		numBeatsLabel = new JLabel(String.valueOf(Constants.numBeats));
-		//beatLabel = new JLabel(String.valueOf(Constants.beat));
-		
-		numBeatsLabel.setLocation(0,0);
-		
-		panel.add(numBeatsLabel);
-		
-		//panel.add(beatLabel);
+	public TimeSignature(int startingY, Image numBeats, Image beat, Canvas canvas) {
+		super(10, startingY);
+		this.numBeats = numBeats;
+		this.beat = beat;
+		this.canvas = canvas;
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		g.drawImage(numBeats, startingX, startingY, canvas);
+		g.fillRect(startingX,startingY+10, (int) (Constants.screenWidth/400), (int) (Constants.screenHeight/400) );
+		g.drawImage(numBeats, startingX, startingY+20, canvas);
 	}
 }
