@@ -1,9 +1,8 @@
 package main;
-import java.awt.*;
+import java.awt.*; 
 import javax.swing.*;
 
 import graphics.StaffBar;
-import graphics.TimeSignature;
 
 public class GraphicsHandler {
 	public static void paintStaffLine(Graphics g, int startingY) {
@@ -15,8 +14,8 @@ public class GraphicsHandler {
 		}
 	}	
 	
-	public static void paintTimeSignature(Graphics g, int startingY, Image numBeats, Image beat, Canvas canvas) {
-		TimeSignature t = new TimeSignature(startingY, numBeats, beat, canvas);
-		t.paint(g);
+	public static void paintTimeSignature(Graphics g, Image numBeats, Image beat, int startingY, Canvas canvas) {
+			g.drawImage(numBeats, 10, startingY, canvas);
+			//g.drawImage(beat, 10, startingY+40, canvas);
 	}
-}
+}	

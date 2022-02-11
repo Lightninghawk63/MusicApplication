@@ -12,13 +12,8 @@ public class Title{
 	
 	private static JLabel title = new JLabel();
 	
-	public static void drawTitle(JFrame f) {
-		title.setText("title");//Constants.readFile.getName());
-		/*title.setAlignmentX(50);
-		title.setAlignmentY(50);
-		title.setEnabled(true);
-		title.paint(g);*/
-		
+	public static void drawTitle(JFrame f, String text) {
+		title.setText(text);
 		f.add(title);
 	}
 }
