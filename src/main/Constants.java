@@ -11,7 +11,8 @@ public class Constants {
 	public static Dimension initialScreenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
 	public static int initialScreenWidth = (int) initialScreenSize.getWidth();
 	public static int initialScreenHeight = (int) initialScreenSize.getHeight();
-	public static int measureSize = initialScreenWidth/10;
+	public static Supplier<Integer> measureSize = () -> (int) (Main.screenWidth.get()/10);
+	public static Supplier<Integer> startingLocation = () -> (int) (Main.screenWidth.get()/90);
 	
 	//Colors
 	public static Color black = new Color(0,0,0);
@@ -29,6 +30,7 @@ public class Constants {
 	//Math Stuff
 	public static FastFourierTransformer transformer = new FastFourierTransformer(DftNormalization.STANDARD);
 	public static Supplier<Integer> barDistance = () -> Main.screenHeight.get()/50;
+	public static Supplier<Integer> numMeasuresInRow = () -> (int)((Main.screenWidth.get()-startingLocation.get())/measureSize.get());
 	//Image references
 	public static String numberImagePrefix = "H:\\ComputerScienceHL-Project\\MusicMaker\\resources\\images\\numbers\\";
 	public static String noteImagePrefix = "H:\\ComputerScienceHL-Project\\MusicMaker\\resources\\images\\notes\\";

@@ -44,6 +44,7 @@ public class Main extends Canvas{
 		for(Measure m : MusicHandler.measures) {
 			m.printMeasure();
 		}
+		System.out.println(MusicHandler.measures.size());
 	}
 
 	public void paint(Graphics g) {

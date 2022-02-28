@@ -31,11 +31,10 @@ public class Measure extends VisualObject{
 	
 	public void printMeasure() {
 		for(int i = 0; i < timeElements.size(); i ++) {
-			System.out.println(timeElements.get(i).duration);
-			//System.out.println(timeElements.get(i).pitch);
+			System.out.println("X: " + startingX + "Y: " + startingY);
 		}
 	}
-
+	
 	@Override
 	void paint(Graphics g) {
 		// TODO Auto-generated method stub

@@ -24,27 +24,27 @@ public class GraphicsHandler {
 	}
 	
 	public static void drawBarLines(Graphics g) {
-		int currentX = (int)((Main.screenWidth.get()/90) + 1.5*Constants.barDistance.get() + Constants.measureSize);
+		int currentX = (int)(Constants.startingLocation.get() + 1.5*Constants.barDistance.get() + Constants.measureSize.get());
 		int currentY = (int) (Main.screenHeight.get()/12);
 		BarLine firstLine = new BarLine(currentX, currentY);
 		firstLine.paint(g);
 		for(int i = 0; i < MusicHandler.measures.size()-2; i++) {
-			if(currentX + Constants.measureSize < Main.screenWidth.get()) {
-				currentX += Constants.measureSize;
+			if(currentX + Constants.measureSize.get() < Main.screenWidth.get()) {
+				currentX += Constants.measureSize.get();
 			}
 			else {
-				currentX = (int)((Main.screenWidth.get()/90) + 1.5*Constants.barDistance.get() + Constants.measureSize);
+				currentX = (int)(Constants.startingLocation.get() + 1.5*Constants.barDistance.get() + Constants.measureSize.get());
 				currentY += Constants.barDistance.get()*6;
 			}
 			
 			BarLine line = new BarLine(currentX, currentY);
 			line.paint(g);
 		}
-		if(currentX + Constants.measureSize < Main.screenWidth.get()) {
-			currentX += Constants.measureSize;
+		if(currentX + Constants.measureSize.get() < Main.screenWidth.get()) {
+			currentX += Constants.measureSize.get();
 		}
 		else {
-			currentX = (int)((Main.screenWidth.get()/90) + 1.5*Constants.barDistance.get() + Constants.measureSize);
+			currentX = (int)(Constants.startingLocation.get() + 1.5*Constants.barDistance.get() + Constants.measureSize.get());
 			currentY += Constants.barDistance.get()*6;
 		}
 		

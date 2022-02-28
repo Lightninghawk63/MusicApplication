@@ -7,10 +7,8 @@ import main.GraphicsHandler;
 import main.Main;
 
 public class DoubleBarLine extends VisualObject{
-	public String backgroundColor;
 	public DoubleBarLine(int startingX, int startingY) {
 		super(startingX, startingY);
-		this.backgroundColor = backgroundColor;
 	}
 
 	@Override
