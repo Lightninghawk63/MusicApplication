@@ -7,12 +7,16 @@ public class Note extends TimeElement{
 	public String enteredPitch;
 	public int pitch;
 	public int numLedgerLines;
-	
-	public Note(String enteredPitch,  int duration) {
+	public int yModifier;
+	public Note(String enteredPitch,  double duration) {
 		super(duration);
 		this.enteredPitch = enteredPitch;
 		pitch = convertPitch();
 		numLedgerLines = findLedgerLines();
+		imageFileName = findImageFile(duration);
+		if(pitch > 28) {
+			yModifier = Constants.barDistance.get()*3;
+		}
 	}
 	
 	private int convertPitch() {
@@ -25,31 +29,61 @@ public class Note extends TimeElement{
 	}
 	
 	private int findLedgerLines() {
-		return 1;
+		int numLedgerLines = 0;
+		if(pitch < 25) {
+			numLedgerLines = (int) -((25-pitch)/2);
+		}
+		else if(pitch > 33) {
+			numLedgerLines = (int) ((pitch-33)/2);
+		}
+		return numLedgerLines;
 	}
 	
-	protected String findImageFile(double duration) {
+	public String findImageFile(double duration) {
 		String imageFile = "error";
-		if(duration == 1) {
-			imageFile = Constants.sixteenth;
+		if(pitch > 28) {
+			if(duration == 16) {
+				imageFile = Constants.sixteenth_high;
+			}
+			
+			else if(duration == 8) {
+				imageFile = Constants.eighth_high;
+			}
+			
+			else if(duration == 4) {
+				imageFile = Constants.quarter_high;
+			}
+			
+			else if(duration == 2 || duration == 12) {
+				imageFile = Constants.half_high;
+			}
+			
+			else if(duration == 1 || duration == 24) {
+				imageFile = Constants.whole;
+			}
 		}
 		
-		else if(duration == 2) {
-			imageFile = Constants.eighth;
+		else {
+			if(duration == 16) {
+				imageFile = Constants.sixteenth_low;
+			}
+			
+			else if(duration == 8) {
+				imageFile = Constants.eighth_low;
+			}
+			
+			else if(duration == 4) {
+				imageFile = Constants.quarter_low;
+			}
+			
+			else if(duration == 2) {
+				imageFile = Constants.half_low;
+			}
+			
+			else if(duration == 1) {
+				imageFile = Constants.whole;
+			}
 		}
-		
-		else if(duration == 4) {
-			imageFile = Constants.quarter;
-		}
-		
-		else if(duration == 8) {
-			imageFile = Constants.half;
-		}
-		
-		else if(duration == 16) {
-			imageFile = Constants.whole;
-		}
-		
 		return imageFile;
 	}
 }
