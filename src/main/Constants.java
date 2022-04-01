@@ -3,15 +3,12 @@ import java.awt.*;
 import java.io.File;
 import java.util.function.Supplier;
 
-import org.apache.commons.math3.transform.DftNormalization;
-import org.apache.commons.math3.transform.FastFourierTransformer;
-
 public class Constants {
 	//Dimensions
 	public static Dimension initialScreenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
 	public static int initialScreenWidth = (int) initialScreenSize.getWidth();
 	public static int initialScreenHeight = (int) initialScreenSize.getHeight();
-	public static Supplier<Integer> measureSize = () -> (int) (Main.screenWidth.get()/10);
+	public static Supplier<Integer> measureSize = () -> (int) (Main.screenWidth.get()/5.5);
 	public static Supplier<Integer> startingLocation = () -> (int) (Main.screenWidth.get()/90);
 	
 	//Colors
@@ -28,13 +25,14 @@ public class Constants {
 	public static File readFile = new File("TestFile.wav");
 	
 	//Math Stuff
-	public static FastFourierTransformer transformer = new FastFourierTransformer(DftNormalization.STANDARD);
 	public static Supplier<Integer> barDistance = () -> Main.screenHeight.get()/50;
+	public static int numBarSpacing = 10;
 	public static Supplier<Integer> numMeasuresInRow = () -> (int)((Main.screenWidth.get()-startingLocation.get())/measureSize.get());
+	
 	//Image references
-	public static String numberImagePrefix = "H:\\ComputerScienceHL-Project\\MusicMaker\\resources\\images\\numbers\\";
-	public static String noteImagePrefix = "H:\\ComputerScienceHL-Project\\MusicMaker\\resources\\images\\notes\\";
-	public static String restImagePrefix = "H:\\ComputerScienceHL-Project\\MusicMaker\\resources\\images\\rests\\";
+	public static String numberImagePrefix = "resources\\images\\numbers\\";
+	public static String noteImagePrefix = "resources\\images\\notes\\";
+	public static String restImagePrefix = "resources\\images\\rests\\";
 	
 	public static String[] numbers = new String[] {
 			numberImagePrefix + "zero.png", numberImagePrefix + "one.png", numberImagePrefix + "two.png",
@@ -44,10 +42,14 @@ public class Constants {
 	};
 	
 	public static String whole = noteImagePrefix + "whole.png";
-	public static String half = noteImagePrefix + "half.png";
-	public static String quarter = noteImagePrefix + "quarter.png";
-	public static String eighth = noteImagePrefix + "eighth.png";
-	public static String sixteenth = noteImagePrefix + "sixteenth.png";
+	public static String half_low = noteImagePrefix + "half_low.png";
+	public static String quarter_low = noteImagePrefix + "quarter_low.png";
+	public static String eighth_low = noteImagePrefix + "eighth_low.png";
+	public static String sixteenth_low = noteImagePrefix + "sixteenth_low.png";
+	public static String half_high = noteImagePrefix + "half_high.png";
+	public static String quarter_high = noteImagePrefix + "quarter_high.png";
+	public static String eighth_high = noteImagePrefix + "eighth_high.png";
+	public static String sixteenth_high = noteImagePrefix + "sixteenth_high.png";
 	public static String dot = noteImagePrefix + "dot.png";
 	
 	public static String wholeRest = restImagePrefix + "whole.png";

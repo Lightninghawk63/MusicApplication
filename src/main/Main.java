@@ -39,12 +39,7 @@ public class Main extends Canvas{
 		initGUI();
 		
 		addMusic();
-		numLines = MusicHandler.measures.size()/9;
-		
-		for(Measure m : MusicHandler.measures) {
-			m.printMeasure();
-		}
-		System.out.println(MusicHandler.measures.size());
+		numLines = MusicHandler.measures.size()/Constants.numMeasuresInRow.get();
 	}
 
 	public void paint(Graphics g) {
@@ -57,6 +52,8 @@ public class Main extends Canvas{
 		}
 
 		GraphicsHandler.drawBarLines(g);
+		
+		GraphicsHandler.drawMeasures(g, this);
 	}
 	
 	public static void getInitialInformation() {
@@ -82,11 +79,11 @@ public class Main extends Canvas{
 		while(reader.hasNext()) {
 			String firstArguement = reader.next();
 			if(firstArguement.charAt(0) != 'r' && firstArguement.charAt(0) != 'R') {
-				MusicHandler.addElement(new Note(firstArguement, reader.nextInt()));
+				MusicHandler.addElement(new Note(firstArguement, reader.nextDouble()));
 			}
 			
 			else {
-				MusicHandler.addElement(new Rest(reader.nextInt()));
+				MusicHandler.addElement(new Rest(reader.nextDouble()));
 			}
 		}
 	}
