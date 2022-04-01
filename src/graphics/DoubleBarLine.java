@@ -1,5 +1,6 @@
 package graphics;
 
+import java.awt.Canvas;
 import java.awt.Graphics;
 
 import main.Constants;
@@ -12,7 +13,7 @@ public class DoubleBarLine extends VisualObject{
 	}
 
 	@Override
-	public void paint(Graphics g) {
+	public void paint(Graphics g, Canvas canvas) {
 		g.fillRect(startingX, startingY,(int) (Main.screenWidth.get()/500), Constants.barDistance.get()*4);
 		g.fillRect((int) (startingX+Main.screenWidth.get()/200), startingY, (int) (Main.screenWidth.get()/250), Constants.barDistance.get()*4);
 		g.setColor(GraphicsHandler.getColor(Main.backgroundColor));

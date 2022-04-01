@@ -1,5 +1,6 @@
 package graphics;
 
+import java.awt.Canvas;
 import java.awt.Graphics;
 
 import main.Constants;
@@ -11,7 +12,7 @@ public class BarLine extends VisualObject{
 	}
 
 	@Override
-	public void paint(Graphics g) {
+	public void paint(Graphics g, Canvas canvas) {
 		g.fillRect(startingX, startingY,(int) (Main.screenWidth.get()/500), Constants.barDistance.get()*4);
 	}
 }

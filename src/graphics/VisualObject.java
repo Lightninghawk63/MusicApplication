@@ -19,5 +19,5 @@ public abstract class VisualObject {
 		return startingY;
 	}
 	
-	abstract void paint(Graphics g);
+	abstract void paint(Graphics g, Canvas canvas);
 }

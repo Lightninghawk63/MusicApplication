@@ -11,8 +11,9 @@ public class StaffBar extends VisualObject{
 	}
 
 	@Override
-	public void paint(Graphics g) {
+	public void paint(Graphics g, Canvas canvas) {
 		g.fillRect(startingX,startingY,
-				(int) (Main.screenWidth.get()*.8 + 1.72*Constants.barDistance.get() + Constants.measureSize.get()), (int) (Main.screenWidth.get()/600));
+				(int) (Main.screenWidth.get()*.8 + 1.72*Constants.barDistance.get() + 
+						Constants.measureSize.get()), (int) (Main.screenWidth.get()/600));
 	}
 }
